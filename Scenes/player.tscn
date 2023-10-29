@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://cn85oas75jky"]
+
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_fbaeg"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_f8pp0"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_luqon"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b5wly"]
+albedo_color = Color(0.14902, 0.74902, 0.701961, 1)
+metallic_specular = 0.49
+roughness = 0.28
+
+[node name="Player" type="RigidBody3D"]
+contact_monitor = true
+script = ExtResource("1_fbaeg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_f8pp0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_luqon")
+surface_material_override/0 = SubResource("StandardMaterial3D_b5wly")
